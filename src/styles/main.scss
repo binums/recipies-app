@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+@import "_variables.scss";
+
+@import "_SplashScreen.scss";
+@import "_AuthScreen.scss";
+
+body {
+	box-sizing: border-box;
+	margin: 0;
+	font-family: "Montserrat", sans-serif;
+}
+
+.app__container {
+	width: 100vw;
+	height: 100vh;
+}
