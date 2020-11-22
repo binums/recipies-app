@@ -4,11 +4,13 @@
 
 @import "_SplashScreen.scss";
 @import "_AuthScreen.scss";
+@import "_SnackBar.scss";
 
 body {
 	box-sizing: border-box;
 	margin: 0;
 	font-family: "Montserrat", sans-serif;
+	user-select: none;
 }
 
 .app__container {

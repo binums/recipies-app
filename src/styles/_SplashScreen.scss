@@ -16,6 +16,7 @@
 	}
 
 	@media (min-width: 40rem) {
-		background: url("../images/Background_Image-desktop.png") no-repeat;
+    background: url("../images/Background_Image-desktop.png") no-repeat;
+    // object-fit: cover;
 	}
 }
