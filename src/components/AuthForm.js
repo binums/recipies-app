@@ -1,12 +1,21 @@
 import { useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { IconContext } from "react-icons/lib";
+import { useHistory } from "react-router-dom";
 import SnackBar from "./SnackBar";
 
-const AuthForm = ({ setAuthState, formData, fieldState, setFieldState }) => {
+const AuthForm = ({
+	setAuthState,
+	formData,
+	fieldState,
+	setFieldState,
+	setCookie,
+	removeCookie,
+}) => {
 	const [triggerSnack, setTriggererSnack] = useState(false);
 	const [snackMessage, setSnackMessage] = useState("");
 	const [triggerState, setTriggerState] = useState();
+	const history = useHistory();
 
 	const handleSubmit = () => {
 		let isValid = false;
@@ -35,6 +44,8 @@ const AuthForm = ({ setAuthState, formData, fieldState, setFieldState }) => {
 		}
 		setTimeout(() => {
 			if (formData.button === "SignUp" && isValid === true) setAuthState(1);
+			if (formData.button === "SignIn" && isValid === true)
+				setCookie("auth_status", "true");
 			setTriggererSnack(false);
 		}, 3000);
 

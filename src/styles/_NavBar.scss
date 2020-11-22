@@ -1,0 +1,42 @@
+.nav-bar__container {
+	display: flex;
+	align-items: center;
+	box-shadow: 0 -12px 4vh 0 rgba(0, 0, 0, 0.25);
+
+	.nav-bar__item {
+		padding: 1rem 0;
+		display: flex;
+		flex: 1;
+		justify-content: center;
+		border-bottom: 8px solid white;
+		transition: border-bottom 0.4s, background-color 0.4s;
+
+		@media (min-width: 75rem) {
+			&:hover {
+				cursor: pointer;
+				background-color: #ccc;
+				border-bottom: 8px solid #ccc;
+			}
+		}
+
+		&:active {
+			background-color: #ccc;
+			border-bottom: 8px solid #ccc;
+		}
+	}
+
+	.nav-bar__item--active {
+		border-bottom: 8px solid $primary-color;
+
+		@media (min-width: 75rem) {
+			&:active {
+				background-color: #ccc;
+			}
+
+			&:hover {
+				border-bottom: 8px solid $primary-color;
+				background-color: white;
+			}
+		}
+	}
+}

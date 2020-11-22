@@ -1,8 +1,9 @@
 import { useState } from "react";
 import logoDark from "../images/Flavr_logo-dark.png";
 import AuthForm from "../components/AuthForm";
+import withAuth from "../utils/withAuth";
 
-const AuthScreen = () => {
+const AuthScreen = ({ setCookie, removeCookie }) => {
 	const [authState, setAuthState] = useState(0);
 	const [signupFields, setSignupFields] = useState({
 		name: "",
@@ -68,6 +69,8 @@ const AuthScreen = () => {
 					}}
 					fieldState={signinFields}
 					setFieldState={setSigninFields}
+					setCookie={setCookie}
+					removeCookie={removeCookie}
 				/>
 			) : (
 				<AuthForm
@@ -97,10 +100,12 @@ const AuthScreen = () => {
 					}}
 					fieldState={signupFields}
 					setFieldState={setSignupFields}
+					setCookie={setCookie}
+					removeCookie={removeCookie}
 				/>
 			)}
 		</div>
 	);
 };
 
-export default AuthScreen;
+export default withAuth(AuthScreen);
