@@ -6,22 +6,32 @@ import Profile from "./pages/Profile";
 import Recipes from "./pages/Recipes";
 import SplashScreen from "./pages/SplashScreen";
 import main from "./styles/main.scss";
-import { useCookies } from "react-cookie";
-import { useEffect } from "react";
+import GlobalContext from "./context/GlobalContext";
+import reducer from "./context/reducer";
+import { useContext, useReducer } from "react";
+import SnackBar from "./components/SnackBar";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
+	const initialSnackBarState = useContext(GlobalContext);
+	const [state, dispatch] = useReducer(reducer, initialSnackBarState);
+
 	return (
 		<div className="app__container">
-			<BrowserRouter>
-				<Switch>
-					<Route path="/" exact component={SplashScreen} />
-					<Route path="/auth" exact component={AuthScreen} />
-					<Route path="/home" exact component={Home} />
-					<Route path="/recipes" exact component={Recipes} />
-					<Route path="/favorites" exact component={Favorites} />
-					<Route path="/profile" exact component={Profile} />
-				</Switch>
-			</BrowserRouter>
+			<GlobalContext.Provider value={{ state, dispatch }}>
+				{state.snackBarStatus && <SnackBar />}
+				<BrowserRouter>
+					<Switch>
+						<Route exact path="/" component={SplashScreen} />
+						<Route exact path="/auth" component={AuthScreen} />
+						<Route exact path="/home" component={Home} />
+						<Route exact path="/recipes" component={Recipes} />
+						<Route exact path="/favorites" component={Favorites} />
+						<Route exact path="/profile" component={Profile} />
+						<Route component={PageNotFound} />
+					</Switch>
+				</BrowserRouter>
+			</GlobalContext.Provider>
 		</div>
 	);
 }

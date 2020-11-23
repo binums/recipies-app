@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { IconContext } from "react-icons/lib";
 import { useHistory } from "react-router-dom";
-import SnackBar from "./SnackBar";
+import GlobalContext from "../context/GlobalContext";
 
 const AuthForm = ({
 	setAuthState,
@@ -10,15 +10,14 @@ const AuthForm = ({
 	fieldState,
 	setFieldState,
 	setCookie,
-	removeCookie,
 }) => {
-	const [triggerSnack, setTriggererSnack] = useState(false);
-	const [snackMessage, setSnackMessage] = useState("");
-	const [triggerState, setTriggerState] = useState();
-	const history = useHistory();
+
+	const { dispatch } = useContext(GlobalContext);
 
 	const handleSubmit = () => {
-		let isValid = false;
+		let isValid = false,
+			snackMessage = "",
+			triggerState = "";
 		if (
 			((formData.button === "SignUp" && fieldState.name) ||
 				formData.button === "SignIn") &&
@@ -30,26 +29,31 @@ const AuthForm = ({
 					fieldState.email
 				)
 			) {
-				console.log("inside");
-				setSnackMessage(`Invalid email`);
-				setTriggerState("error");
+				snackMessage = `Invalid email`;
+				triggerState = "error";
 			} else {
-				setSnackMessage(`${formData.action} was sucessfull`);
-				setTriggerState("success");
+				snackMessage = `${formData.action} was sucessfull`;
+				triggerState = "success";
 				isValid = true;
 			}
 		} else {
-			setSnackMessage(`All fields are required`);
-			setTriggerState("error");
+			snackMessage = `All fields are required`;
+			triggerState = "error";
 		}
 		setTimeout(() => {
 			if (formData.button === "SignUp" && isValid === true) setAuthState(1);
 			if (formData.button === "SignIn" && isValid === true)
 				setCookie("auth_status", "true");
-			setTriggererSnack(false);
-		}, 3000);
+		}, 200);
+		dispatch({
+			type: "SNACKBAR_TOGGLE",
+			payload: {
+				snackBarMessage: snackMessage,
+				snackBarState: triggerState,
+				snackBarStatus: true,
+			},
+		});
 
-		setTriggererSnack(true);
 		console.log("AuthForm -> fieldState", fieldState);
 	};
 
@@ -97,13 +101,6 @@ const AuthForm = ({
 					</button>
 					{formData.buttonSubscript && (
 						<p className="auth_message">{formData.buttonSubscript}</p>
-					)}
-					{triggerSnack && triggerState && (
-						<SnackBar
-							state={triggerState}
-							message={snackMessage}
-							exitState={setTriggererSnack}
-						/>
 					)}
 				</div>
 			</div>

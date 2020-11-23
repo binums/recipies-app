@@ -1,0 +1,22 @@
+.page-not-found__container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	flex-direction: column;
+
+	> * {
+		margin-bottom: 4rem;
+  }
+  
+  p {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .button__container {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+  }
+}
