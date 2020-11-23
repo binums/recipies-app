@@ -10,23 +10,25 @@ const Profile = ({ setCookie }) => {
 		<div className="dashboard__container">
 			<div className="profile__container">
 				<p>Hey there,</p>
-				<button
-					className="button button__filled"
-					onClick={() => {
-						dispatch({
-							type: "SNACKBAR_TOGGLE",
-							payload: {
-								snackBarMessage: "Sign Out successfull",
-								snackBarState: "success",
-								snackBarStatus: true,
-							},
-						});
-						setTimeout(() => {
-							setCookie("auth_status", "false");
-						}, 200);
-					}}>
-					Sign Out
-				</button>
+				<div className="button__container">
+					<button
+						className="button button__filled"
+						onClick={() => {
+							dispatch({
+								type: "SNACKBAR_TOGGLE",
+								payload: {
+									snackBarMessage: "Sign Out successfull",
+									snackBarState: "success",
+									snackBarStatus: true,
+								},
+							});
+							setTimeout(() => {
+								setCookie("auth_status", "false");
+							}, 200);
+						}}>
+						Sign Out
+					</button>
+				</div>
 			</div>
 			<NavBar selected="profile" className="nav-bar" />
 		</div>

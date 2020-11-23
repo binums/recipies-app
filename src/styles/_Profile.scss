@@ -1,7 +1,28 @@
 .profile__container {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 100%;
+
+	> * {
+		margin-bottom: 4rem;
+	}
+
+	p {
+		font-size: 2rem;
+		font-weight: 700;
+	}
+
+	.button__container {
+		width: 80%;
+		display: flex;
+		justify-content: center;
+
+		button {
+			@media (min-width: 40rem) {
+				width: 30rem;
+			}
+		}
+	}
 }
