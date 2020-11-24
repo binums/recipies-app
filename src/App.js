@@ -1,4 +1,4 @@
-import { Route, BrowserRouter, Switch, useHistory } from "react-router-dom";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
 import AuthScreen from "./pages/AuthScreen";
 import Favorites from "./pages/Favorites";
 import Home from "./pages/Home";

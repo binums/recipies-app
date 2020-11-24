@@ -3,39 +3,13 @@ import { IconContext } from "react-icons/lib";
 import NavBar from "../components/NavBar";
 import { BsFillBellFill } from "react-icons/bs";
 import { BiSearchAlt2 } from "react-icons/bi";
-import ChocolatePudding from "../images/home-scroll/ChocolatePudding.png";
-import FeaturedRecipe from "../images/home-scroll/FeaturedRecipe.png";
 import HomeScroll from "../components/HomeScroll";
 import withAuth from "../utils/withAuth";
+import scrollList from "../Data/scrollList";
+import recipeList from "../Data/recipeList";
+import RecipeCard from "../components/RecipeCard";
 
 const Home = () => {
-	const scrollList = [
-		{
-			name: "featured-recipe",
-			image: FeaturedRecipe,
-		},
-		{
-			name: "chocolate-pudding",
-			image: ChocolatePudding,
-		},
-		{
-			name: "featured-recipe",
-			image: FeaturedRecipe,
-		},
-		{
-			name: "chocolate-pudding",
-			image: ChocolatePudding,
-		},
-		{
-			name: "featured-recipe",
-			image: FeaturedRecipe,
-		},
-		{
-			name: "chocolate-pudding",
-			image: ChocolatePudding,
-		},
-	];
-
 	return (
 		<div className="dashboard__container">
 			<div className="home__container">
@@ -48,9 +22,16 @@ const Home = () => {
 						<BiSearchAlt2 />
 					</IconContext.Provider>
 				</div>
-				<HomeScroll scrollList={scrollList} />
+				<div className="home__y-scroll">
+					<div className="home__side-scroll">
+						<HomeScroll scrollList={scrollList} />
+					</div>
+					<div className="home__recipe-cards">
+						<RecipeCard recipeList={recipeList} />
+					</div>
+				</div>
 			</div>
-			<NavBar selected="home" className="nav-bar" />
+			<NavBar selected="home" className="home__nav-bar" />
 		</div>
 	);
 };
