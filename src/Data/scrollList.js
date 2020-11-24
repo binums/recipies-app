@@ -26,6 +26,22 @@ const scrollList = [
 		name: "chocolate-pudding",
 		image: ChocolatePudding,
 	},
+	{
+		name: "featured-recipe",
+		image: FeaturedRecipe,
+	},
+	{
+		name: "chocolate-pudding",
+		image: ChocolatePudding,
+	},
+	{
+		name: "featured-recipe",
+		image: FeaturedRecipe,
+	},
+	{
+		name: "chocolate-pudding",
+		image: ChocolatePudding,
+	},
 ];
 
 export default scrollList;
