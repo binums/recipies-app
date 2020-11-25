@@ -11,6 +11,7 @@
 		justify-content: center;
 		border-bottom: 8px solid white;
 		transition: border-bottom 0.4s, background-color 0.4s;
+		min-height: 2rem;
 
 		@media (min-width: 75rem) {
 			&:hover {

@@ -1,6 +1,6 @@
-import banana_muffin from "../images/recipes/banana_muffin.png";
-import waffles from "../images/recipes/waffles.png";
-import pancakes from "../images/recipes/pancakes.png";
+import banana_muffin from "../images/recipes/banana_muffin.svg";
+import waffles from "../images/recipes/waffles.svg";
+import pancakes from "../images/recipes/pancakes.svg";
 
 const bNbList = [
 	{

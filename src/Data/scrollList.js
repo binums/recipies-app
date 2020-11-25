@@ -1,5 +1,5 @@
-import ChocolatePudding from "../images/home-scroll/ChocolatePudding.png";
-import FeaturedRecipe from "../images/home-scroll/FeaturedRecipe.png";
+import ChocolatePudding from "../images/home-scroll/ChocolatePudding.svg";
+import FeaturedRecipe from "../images/home-scroll/FeaturedRecipe.svg";
 
 const scrollList = [
 	{

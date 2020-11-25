@@ -1,11 +1,11 @@
-import ic_favorites_grey from "../images/Menu/ic_favorites_grey.png";
-import ic_favorites from "../images/Menu/ic_favorites.png";
-import ic_home_grey from "../images/Menu/ic_home_grey.png";
-import ic_home from "../images/Menu/ic_home.png";
-import ic_profile_grey from "../images/Menu/ic_profile_grey.png";
-import ic_profile from "../images/Menu/ic_profile.png";
-import ic_recipes_grey from "../images/Menu/ic_recipes_grey.png";
-import ic_recipes from "../images/Menu/ic_recipes.png";
+import ic_favorites_grey from "../images/Menu/ic_favorites_grey.svg";
+import ic_favorites from "../images/Menu/ic_favorites.svg";
+import ic_home_grey from "../images/Menu/ic_home_grey.svg";
+import ic_home from "../images/Menu/ic_home.svg";
+import ic_profile_grey from "../images/Menu/ic_profile_grey.svg";
+import ic_profile from "../images/Menu/ic_profile.svg";
+import ic_recipes_grey from "../images/Menu/ic_recipes_grey.svg";
+import ic_recipes from "../images/Menu/ic_recipes.svg";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 

@@ -1,6 +1,6 @@
-import alfredo_sauce from "../images/recipes/alfredo_sauce.png";
-import chocolate_pudding from "../images/recipes/chocolate_pudding.png";
-import minestrone_soup from "../images/recipes/minestrone_soup.png";
+import alfredo_sauce from "../images/recipes/alfredo_sauce.svg";
+import chocolate_pudding from "../images/recipes/chocolate_pudding.svg";
+import minestrone_soup from "../images/recipes/minestrone_soup.svg";
 
 const favoritesList = [
 	{

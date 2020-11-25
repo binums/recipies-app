@@ -1,6 +1,6 @@
-import pancakes from "../images/recipes/pancakes.png";
-import pasta_salad from "../images/recipes/pasta_salad.png";
-import sour_cream_meat_tacos from "../images/recipes/sour_cream_meat_tacos.png";
+import pancakes from "../images/recipes/pancakes.svg";
+import pasta_salad from "../images/recipes/pasta_salad.svg";
+import sour_cream_meat_tacos from "../images/recipes/sour_cream_meat_tacos.svg";
 
 const recipeList = [
 	{

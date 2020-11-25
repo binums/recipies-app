@@ -1,13 +1,8 @@
-import ic_difficulty from "../images/card-icons/ic_difficulty.png";
-import ic_duration from "../images/card-icons/ic_duration.png";
-import ic_recipes_grey2 from "../images/card-icons/ic_recipes_grey2.png";
+import ic_difficulty from "../images/card-icons/ic_difficulty.svg";
+import ic_duration from "../images/card-icons/ic_duration.svg";
+import ic_recipes_grey2 from "../images/card-icons/ic_recipes_grey2.svg";
 
 const RecipeCard = ({ recipeList }) => {
-	console.log(
-		"TCL ~ file: RecipeCard.js ~ line 10 ~ RecipeCard ~ recipeList",
-		recipeList
-	);
-
 	return (
 		<div className="recipe-car__container">
 			{recipeList.map((recipe, i) => {
