@@ -3,7 +3,7 @@ const HomeScroll = ({ scrollList }) => {
 		<div className="home__side-scroll--container">
 			{scrollList.map((val, i) => {
 				return (
-					<div className="home__side-scroll--item">
+					<div className="home__side-scroll--item" key={i}>
 						<img src={val.image} alt={val.name} />
 					</div>
 				);

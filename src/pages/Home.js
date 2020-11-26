@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { IconContext } from "react-icons/lib";
 import NavBar from "../components/NavBar";
 import { BsFillBellFill } from "react-icons/bs";
-import { BiSearchAlt2 } from "react-icons/bi";
+import { FiSearch } from "react-icons/fi";
 import HomeScroll from "../components/HomeScroll";
 import withAuth from "../utils/withAuth";
 import scrollList from "../Data/scrollList";
@@ -43,7 +43,7 @@ const Home = () => {
 						<IconContext.Provider value={{ size: "1.5rem" }}>
 							<div className="home__search">
 								<div className="home__search--active">
-									<BiSearchAlt2
+									<FiSearch
 										onClick={() => {
 											setTimeout(() => {
 												setShowSearch(true);
@@ -60,7 +60,11 @@ const Home = () => {
 							<HomeScroll scrollList={scrollList} />
 						</div>
 						<div className="home__recipe-cards">
-							<RecipeCard recipeList={recipeList} />
+							<div className="recipe-car__container">
+								{recipeList.map((recipe, i) => {
+									return <RecipeCard recipe={recipe} key={i} />;
+								})}
+							</div>
 						</div>
 					</div>
 				</div>

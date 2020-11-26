@@ -15,13 +15,12 @@
 	@media (min-width: 40rem) {
 		width: 50%;
 		&.notifications__container--active {
-			box-shadow: 3px 0 4vh 0 rgba(0, 0, 0, 0.25);
+			box-shadow: -6px 0 3vh 0 rgba(0, 0, 0, 0.2);
 		}
 	}
 
 	@media (min-width: 75rem) {
 		width: 25%;
-		// box-shadow: 23px 0 4vh 0 rgba(0, 0, 0, 0.25);
 	}
 
 	.notifications__top-nav {

@@ -7,12 +7,19 @@
 	transition: transform 0.4s;
 	display: flex;
 	flex-direction: column;
+	overflow-y: scroll;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
 
 	&.search__container--active {
 		transform: translateX(0);
 	}
 
-	@media (min-width: 40rem) {
+	@media (min-width: 47rem) {
 		width: 50%;
 
 		&.search__container--active {
@@ -21,62 +28,101 @@
 		}
 	}
 
-	@media (min-width: 75rem) {
+	@media (min-width: 98rem) {
 		width: 25%;
 
 		&.search__container--active {
 			transform: translateX(75vw);
 			box-shadow: 3px 0 4vh 0 rgba(0, 0, 0, 0.25);
 		}
-		// box-shadow: 23px 0 4vh 0 rgba(0, 0, 0, 0.25);
 	}
 
 	.search__top-nav {
 		display: flex;
 		align-items: center;
-		padding: 0 1.2rem;
+		padding: 1rem 1.2rem;
+		justify-content: space-between;
 
-		p {
-			flex: auto;
-			font-weight: 700;
-			font-size: 1.5rem;
-			color: $primary-color;
+		.search__input {
+			padding: 0.8rem;
+			border: 2px solid $input-border-color;
+			border-radius: 50px;
+			margin: 0.5rem 0;
+			outline: none;
+			background-color: white;
+			transition: background-color 0.7s, border 0.7s;
+			width: 80%;
+
+			&:focus {
+				background-color: $input-border-color;
+				border: 2px solid $input-border-color;
+			}
 		}
 
-		.search__close {
+		.search__actions--container {
 			display: flex;
-			align-items: center;
-			justify-content: flex-end;
-			width: 100%;
-			height: 5vh;
 
-			.search__close--active {
-				height: 6vh;
-				width: 6vh;
-				background-color: white;
-				border-radius: 50%;
+			.search__actions {
 				display: flex;
-				justify-content: center;
 				align-items: center;
-				transition: background-color 0.2s;
+				justify-content: flex-end;
+				width: 100%;
+				height: 5vh;
 
-				@media (min-width: 75rem) {
-					&:hover {
-						cursor: pointer;
+				.search__actions--active {
+					height: 3rem;
+					width: 3rem;
+					background-color: white;
+					border-radius: 50%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					transition: background-color 0.2s;
+
+					@media (min-width: 75rem) {
+						&:hover {
+							cursor: pointer;
+						}
 					}
-				}
 
-				&:active {
-					background-color: #ccc;
+					&:active {
+						background-color: #ccc;
+					}
 				}
 			}
 		}
 	}
 
-	.search__content {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100%;
+	.search__content--container {
+		height: auto;
+		align-self: center;
+		// overflow-y: scroll;
+
+		width: calc(100% - 2rem);
+
+		.search__content {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			width: 100%;
+			flex-wrap: wrap;
+
+			.recipe-card {
+				@media (min-width: 42rem) {
+					width: calc(100% - 1rem);
+				}
+
+				@media (min-width: 75rem) {
+					width: calc(100% - 1rem);
+				}
+			}
+		}
+
+		.search__no-result {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+		}
 	}
 }
