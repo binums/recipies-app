@@ -1,7 +1,6 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { IconContext } from "react-icons/lib";
-import { useHistory } from "react-router-dom";
 import GlobalContext from "../context/GlobalContext";
 
 const AuthForm = ({

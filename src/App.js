@@ -3,7 +3,7 @@ import AuthScreen from "./pages/AuthScreen";
 import Favorites from "./pages/Favorites";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
-import Recipes from "./pages/Recipes";
+import Categories from "./pages/Categories";
 import SplashScreen from "./pages/SplashScreen";
 import main from "./styles/main.scss";
 import GlobalContext from "./context/GlobalContext";
@@ -11,6 +11,7 @@ import reducer from "./context/reducer";
 import { useContext, useReducer } from "react";
 import SnackBar from "./components/SnackBar";
 import PageNotFound from "./pages/PageNotFound";
+import RecipeDetails from "./pages/RecipeDetails";
 
 function App() {
 	const initialSnackBarState = useContext(GlobalContext);
@@ -25,9 +26,10 @@ function App() {
 						<Route exact path="/" component={SplashScreen} />
 						<Route exact path="/auth" component={AuthScreen} />
 						<Route exact path="/home" component={Home} />
-						<Route exact path="/recipes" component={Recipes} />
+						<Route exact path="/categories" component={Categories} />
 						<Route exact path="/favorites" component={Favorites} />
 						<Route exact path="/profile" component={Profile} />
+						<Route exact path="/recipe/:id" component={RecipeDetails} />
 						<Route component={PageNotFound} />
 					</Switch>
 				</BrowserRouter>

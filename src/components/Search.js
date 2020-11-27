@@ -4,13 +4,10 @@ import { IconContext } from "react-icons/lib";
 import recipeList from "../Data/recipeList";
 import RecipeCard from "./RecipeCard";
 
-const Search = ({ showSearch, setShowSearch }) => {
-	console.log(
-		"TCL ~ file: Search.js ~ line 8 ~ Search ~ showSearch",
-		showSearch
-	);
+const Search = ({ showSearch, setShowSearch, type }) => {
 	const searchContainerRef = useRef(null);
 	const [keyword, setKeyword] = useState("");
+	const [noResult, setNoResult] = useState(true);
 
 	useEffect(() => {
 		if (
@@ -30,6 +27,10 @@ const Search = ({ showSearch, setShowSearch }) => {
 			setKeyword("");
 		}
 	}, [showSearch]);
+
+	useEffect(() => {
+		if (keyword) setNoResult(true);
+	}, [keyword]);
 
 	return (
 		<div className="search__container" ref={searchContainerRef}>
@@ -58,19 +59,30 @@ const Search = ({ showSearch, setShowSearch }) => {
 					</IconContext.Provider>
 				</div>
 			</div>
-			<div className="search__content--container">
-				<div className="recipe-car__container search__content">
-					{recipeList.map((val, i) => {
-						if (keyword) {
-							if (val.name.toLowerCase().includes(keyword.toLowerCase())) {
-								return <RecipeCard recipe={val} key={i} className />;
-							}
-						} else {
+			<div className="recipe-car__container search__content">
+				{recipeList.map((val, i) => {
+					if (keyword) {
+						if (
+							val.name.toLowerCase().includes(keyword.toLowerCase()) &&
+							(type === "recipes" ||
+								(type === "favorites" && val.isFav === true))
+						) {
+							if (noResult) setNoResult(false);
+							return <RecipeCard recipe={val} key={i} className />;
+						}
+					} else {
+						if (
+							type === "recipes" ||
+							(type === "favorites" && val.isFav === true)
+						) {
 							return <RecipeCard recipe={val} key={i} />;
 						}
-					})}
-				</div>
+					}
+				})}
 			</div>
+			{noResult && keyword && (
+				<div className="search__no-result">No Result</div>
+			)}
 		</div>
 	);
 };

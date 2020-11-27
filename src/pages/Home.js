@@ -21,7 +21,11 @@ const Home = () => {
 				showNotifications={showNotifications}
 				setShowNotifications={setShowNotifications}
 			/>
-			<Search showSearch={showSearch} setShowSearch={setShowSearch} />
+			<Search
+				showSearch={showSearch}
+				setShowSearch={setShowSearch}
+				type="recipes"
+			/>
 			<div className="dashboard__container">
 				<div className="home__container">
 					<div className="home__top-nav">

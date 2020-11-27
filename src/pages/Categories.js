@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { IconContext } from "react-icons/lib";
 import NavBar from "../components/NavBar";
-import RecipeCard from "../components/RecipeCard";
 import Search from "../components/Search";
-import { favList } from "../Data/recipeList";
+import categoryList from "../Data/categoryList";
 import withAuth from "../utils/withAuth";
 
-const Favorites = () => {
+const Categories = () => {
 	const [showSearch, setShowSearch] = useState(false);
 
 	return (
@@ -15,16 +14,16 @@ const Favorites = () => {
 			<Search
 				showSearch={showSearch}
 				setShowSearch={setShowSearch}
-				type="favorites"
+				type="recipes"
 			/>
 			<div className="dashboard__container">
-				<div className="favorites__container">
-					<div className="favorites__top-nav">
+				<div className="categories__container">
+					<div className="categories__top-nav">
 						<div></div>
-						<p className="dashboard__title">FAVORITES</p>
+						<p className="dashboard__title">CATEGORIES</p>
 						<IconContext.Provider value={{ size: "1.5rem" }}>
-							<div className="favorites__search">
-								<div className="favorites__search--active">
+							<div className="categories__search">
+								<div className="categories__search--active">
 									<FiSearch
 										onClick={() => {
 											setTimeout(() => {
@@ -36,16 +35,20 @@ const Favorites = () => {
 							</div>
 						</IconContext.Provider>
 					</div>
-					<div className="recipe-car__container favorites__content">
-						{favList.map((recipe, i) => {
-							return <RecipeCard recipe={recipe} key={i} />;
+					<div className="categories__content">
+						{categoryList.map((val, i) => {
+							return (
+								<div className="category" key={i}>
+									{val}
+								</div>
+							);
 						})}
 					</div>
 				</div>
-				<NavBar selected="favorites" className="nav-bar" />
+				<NavBar selected="categories" className="nav-bar" />
 			</div>
 		</>
 	);
 };
 
-export default withAuth(Favorites);
+export default withAuth(Categories);

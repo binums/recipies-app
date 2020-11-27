@@ -21,10 +21,10 @@ const NavBar = ({ selected }) => {
 			route: "/home",
 		},
 		{
-			name: "recipes",
+			name: "categories",
 			activeSrc: ic_recipes,
 			inactiveSrc: ic_recipes_grey,
-			route: "/recipes",
+			route: "/categories",
 		},
 		{
 			name: "favorites",

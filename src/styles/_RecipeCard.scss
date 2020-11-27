@@ -7,6 +7,11 @@
 		box-shadow: 0 8px 2vh 1px rgba(0, 0, 0, 0.1);
 		border-radius: 5px;
 		margin: 0.75rem 0.5rem;
+		transition: background-color 0.2s;
+
+		&:active {
+			background-color: #ccc;
+		}
 
 		&:last-child {
 			margin-bottom: 1.5rem;
@@ -14,10 +19,17 @@
 
 		@media (min-width: 42rem) {
 			width: calc(50% - 1rem);
+
+			&:last-child {
+				margin-bottom: 0.75rem;
+			}
 		}
 
 		@media (min-width: 75rem) {
 			width: calc(33.33% - 1rem);
+			&:hover {
+				cursor: pointer;
+			}
 		}
 
 		> img {

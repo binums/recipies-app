@@ -1,10 +1,22 @@
+import { useHistory } from "react-router-dom";
 import ic_difficulty from "../images/card-icons/ic_difficulty.svg";
 import ic_duration from "../images/card-icons/ic_duration.svg";
 import ic_recipes_grey2 from "../images/card-icons/ic_recipes_grey2.svg";
 
 const RecipeCard = ({ recipe }) => {
+	const history = useHistory();
+
 	return (
-		<div className="recipe-card">
+		<div
+			className="recipe-card"
+			onClick={() =>
+				setTimeout(() => {
+					history.push({
+						pathname: `/recipe/${recipe._id}`,
+						state: { from: history.location.pathname },
+					});
+				}, 200)
+			}>
 			<img src={recipe.image} alt={recipe.name} />
 			<div className="details">
 				<p className="category">{recipe.category}</p>
