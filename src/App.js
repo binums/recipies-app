@@ -12,6 +12,7 @@ import { useContext, useReducer } from "react";
 import SnackBar from "./components/SnackBar";
 import PageNotFound from "./pages/PageNotFound";
 import RecipeDetails from "./pages/RecipeDetails";
+import CategoryDetails from "./pages/CategoryDetails";
 
 function App() {
 	const initialSnackBarState = useContext(GlobalContext);
@@ -30,6 +31,7 @@ function App() {
 						<Route exact path="/favorites" component={Favorites} />
 						<Route exact path="/profile" component={Profile} />
 						<Route exact path="/recipe/:id" component={RecipeDetails} />
+						<Route exact path="/category/:id" component={CategoryDetails} />
 						<Route component={PageNotFound} />
 					</Switch>
 				</BrowserRouter>

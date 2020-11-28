@@ -1,0 +1,144 @@
+.category-details__container {
+	width: 100%;
+	height: calc(100% - 2rem);
+	display: flex;
+	flex-direction: column;
+	background-color: #f2f2f2;
+
+	@media (min-width: 75rem) {
+		flex-direction: row-reverse;
+		background-color: white;
+	}
+
+	.category-details__header {
+		width: 100%;
+		height: 50vh;
+		display: flex;
+		flex-direction: column;
+		flex: 5;
+		background-color: #f2f2f2;
+
+		@media (min-width: 75rem) {
+			height: 100vh;
+		}
+
+		.category-details__header-top {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: space-between;
+			flex: 3;
+
+			@media (min-width: 75rem) {
+				flex: 2;
+			}
+
+			> * {
+				margin: 1.5rem;
+				border-radius: 50%;
+				background-color: rgba(0, 0, 0, 0.7);
+				height: 2.5rem;
+				width: 2.7rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding-top: 0.2rem;
+				transition: background-color 0.5s;
+
+				@media (min-width: 75rem) {
+					&:hover {
+						cursor: pointer;
+					}
+				}
+
+				&:active {
+					background-color: rgba(0, 0, 0, 0.3);
+				}
+			}
+		}
+
+		.category-details__header--bottom {
+			display: flex;
+			flex-direction: column;
+			padding: 1rem;
+			padding-bottom: 2rem;
+			flex: 1;
+
+			.category-details__details {
+				padding: 0 1rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+
+				> * {
+					margin: 0.5rem;
+				}
+
+				.category-details__category {
+					color: $placeholder-color;
+					text-transform: uppercase;
+					font-size: 16px;
+					line-height: 1.5rem;
+				}
+
+				.category-details__name {
+					font-weight: 500;
+					font-size: 20px;
+					line-height: 1.5rem;
+				}
+			}
+
+			.category-details__bottom-bar {
+				display: flex;
+				justify-content: flex-start;
+				padding: 1rem;
+
+				> * {
+					display: flex;
+					align-items: flex-start;
+					justify-content: center;
+					align-items: center;
+					flex: 1.5;
+				}
+
+				.category-details__difficulty {
+					flex: 1;
+				}
+
+				.category-details__bottom-bar--text {
+					margin: 0;
+					padding: 0 0.2rem;
+					font-size: 14px;
+					color: $placeholder-color;
+					line-height: 1.5rem;
+
+					@media (min-width: 75rem) {
+						font-size: 16px;
+					}
+				}
+			}
+		}
+	}
+
+	.category-details__content {
+		@media (min-width: 75rem) {
+			margin: 1rem;
+			height: 100%;
+			flex: 7;
+			overflow-y: scroll;
+			-ms-overflow-style: none;
+			scrollbar-width: none;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+
+			.recipe-card {
+				flex-wrap: wrap;
+        width: 46%;
+        height: 22vw;
+			}
+		}
+	}
+}

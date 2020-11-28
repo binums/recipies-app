@@ -8,7 +8,6 @@ const withAuth = (Component) => {
 		const history = useHistory();
 
 		useEffect(() => {
-			console.log("🚀 ~ file: App.js ~ line 18 ~ App ~ cookies", cookies);
 			if (cookies.auth_status === "true") {
 				if (history?.location?.pathname === "/auth") {
 					if (cookies.post_auth_redirect) {

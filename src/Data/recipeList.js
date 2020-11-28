@@ -13,6 +13,7 @@ let list = [
 		_id: 1,
 		image: pasta_salad,
 		category: "Healthy",
+		categoryId: 1,
 		name: "Pasta Salad 1",
 		duration: 30,
 		difficulty: "Easy",
@@ -39,6 +40,7 @@ let list = [
 		_id: 2,
 		image: pancakes,
 		category: "Breakfast & Brunch",
+		categoryId: 6,
 		name: "Pancakes 1",
 		duration: 15,
 		difficulty: "Easy",
@@ -65,6 +67,7 @@ let list = [
 		_id: 3,
 		image: sour_cream_meat_tacos,
 		category: "Main Dish",
+		categoryId: 2,
 		name: "Sour Cream Meat Tacos 1",
 		duration: 45,
 		difficulty: "Moderate",
@@ -91,6 +94,7 @@ let list = [
 		_id: 4,
 		image: sour_cream_meat_tacos,
 		category: "Main Dish",
+		categoryId: 2,
 		name: "Sour Cream Meat Tacos 2",
 		duration: 45,
 		difficulty: "Moderate",
@@ -117,6 +121,7 @@ let list = [
 		_id: 5,
 		image: pancakes,
 		category: "Breakfast & Brunch",
+		categoryId: 6,
 		name: "Pancakes 2",
 		duration: 15,
 		difficulty: "Easy",
@@ -143,6 +148,7 @@ let list = [
 		_id: 6,
 		image: pasta_salad,
 		category: "Healthy",
+		categoryId: 1,
 		name: "Pasta Salad 2",
 		duration: 30,
 		difficulty: "Easy",
@@ -169,6 +175,7 @@ let list = [
 		_id: 7,
 		image: pasta_salad,
 		category: "Healthy",
+		categoryId: 1,
 		name: "Pasta Salad 3",
 		duration: 30,
 		difficulty: "Easy",
@@ -195,6 +202,7 @@ let list = [
 		_id: 8,
 		image: sour_cream_meat_tacos,
 		category: "Main Dish",
+		categoryId: 2,
 		name: "Sour Cream Meat Tacos 3",
 		duration: 45,
 		difficulty: "Moderate",
@@ -221,6 +229,7 @@ let list = [
 		_id: 9,
 		image: pancakes,
 		category: "Breakfast & Brunch",
+		categoryId: 6,
 		name: "Pancakes 3",
 		duration: 15,
 		difficulty: "Easy",
@@ -247,6 +256,7 @@ let list = [
 		_id: 10,
 		image: alfredo_sauce,
 		category: "Pasta",
+		categoryId: 3,
 		name: "Alfredo Sauce 1",
 		duration: 25,
 		difficulty: "Easy",
@@ -273,6 +283,7 @@ let list = [
 		_id: 11,
 		image: minestrone_soup,
 		category: "Soup",
+		categoryId: 4,
 		name: "Minestorne Soup 1",
 		duration: 45,
 		difficulty: "Easy",
@@ -299,6 +310,7 @@ let list = [
 		_id: 12,
 		image: chocolate_pudding,
 		category: "Dessert",
+		categoryId: 5,
 		name: "Chocolate Pudding 1",
 		duration: 10,
 		difficulty: "Easy",
@@ -325,6 +337,7 @@ let list = [
 		_id: 13,
 		image: alfredo_sauce,
 		category: "Pasta",
+		categoryId: 3,
 		name: "Alfredo Sauce 2",
 		duration: 25,
 		difficulty: "Easy",
@@ -351,6 +364,7 @@ let list = [
 		_id: 14,
 		image: minestrone_soup,
 		category: "Soup",
+		categoryId: 4,
 		name: "Minestorne Soup 2",
 		duration: 45,
 		difficulty: "Easy",
@@ -377,6 +391,7 @@ let list = [
 		_id: 15,
 		image: chocolate_pudding,
 		category: "Dessert",
+		categoryId: 5,
 		name: "Chocolate Pudding 2",
 		duration: 10,
 		difficulty: "Easy",
@@ -402,7 +417,8 @@ let list = [
 	{
 		_id: 16,
 		image: alfredo_sauce,
-		category: "Pasta",
+		category: "Pasta 2",
+		categoryId: 7,
 		name: "Alfredo Sauce 3",
 		duration: 25,
 		difficulty: "Easy",
@@ -428,7 +444,8 @@ let list = [
 	{
 		_id: 17,
 		image: minestrone_soup,
-		category: "Soup",
+		category: "Soup 2",
+		categoryId: 8,
 		name: "Minestorne Soup 3",
 		duration: 45,
 		difficulty: "Easy",
@@ -454,7 +471,8 @@ let list = [
 	{
 		_id: 18,
 		image: chocolate_pudding,
-		category: "Dessert",
+		category: "Dessert 2",
+		categoryId: 9,
 		name: "Chocolate Pudding 3",
 		duration: 10,
 		difficulty: "Easy",
@@ -481,6 +499,7 @@ let list = [
 		_id: 19,
 		image: banana_muffin,
 		category: "Breakfast & Brunch",
+		categoryId: 6,
 		name: "Banana Muffin 1",
 		duration: 60,
 		difficulty: "Moderate",
@@ -507,6 +526,7 @@ let list = [
 		_id: 20,
 		image: pancakes,
 		category: "Breakfast & Brunch",
+		categoryId: 6,
 		name: "Pancakes 4",
 		duration: 15,
 		difficulty: "Easy",
@@ -532,7 +552,8 @@ let list = [
 	{
 		_id: 21,
 		image: waffles,
-		category: "Breakfast & Brunch",
+		category: "Breakfast & Brunch 2",
+		categoryId: 10,
 		name: "Waffles 1",
 		duration: 25,
 		difficulty: "Easy",
@@ -558,7 +579,8 @@ let list = [
 	{
 		_id: 22,
 		image: banana_muffin,
-		category: "Breakfast & Brunch",
+		category: "Breakfast & Brunch 2",
+		categoryId: 10,
 		name: "Banana Muffin 2",
 		duration: 60,
 		difficulty: "Moderate",
@@ -584,7 +606,8 @@ let list = [
 	{
 		_id: 23,
 		image: pancakes,
-		category: "Breakfast & Brunch",
+		category: "Breakfast & Brunch 2",
+		categoryId: 10,
 		name: "Pancakes 5",
 		duration: 15,
 		difficulty: "Easy",
@@ -610,7 +633,8 @@ let list = [
 	{
 		_id: 24,
 		image: waffles,
-		category: "Breakfast & Brunch",
+		category: "Breakfast & Brunch 2",
+		categoryId: 10,
 		name: "Waffles 2",
 		duration: 25,
 		difficulty: "Easy",
@@ -636,10 +660,13 @@ let list = [
 ];
 
 let recipeList = list.sort(() => 0.5 - Math.random());
-let favList = recipeList.filter((val) => val.isFav);
 
-const getRecipeByCategory = (category) => {
-	return recipeList.filter((val) => val.category === category);
+const getFavList = () => {
+	return recipeList.filter((val) => val.isFav);
+};
+
+const getRecipeByCategory = (id) => {
+	return recipeList.filter((val) => val.categoryId == id);
 };
 
 const getRecipeById = (id) => {
@@ -653,4 +680,4 @@ const handleFav = (id) => {
 };
 
 export default recipeList;
-export { favList, getRecipeByCategory, getRecipeById, handleFav };
+export { getFavList, getRecipeByCategory, getRecipeById, handleFav };

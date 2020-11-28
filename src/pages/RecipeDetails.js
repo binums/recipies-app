@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { FaHeart } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 import { IconContext } from "react-icons/lib";
 import { useHistory } from "react-router-dom";
+import GlobalContext from "../context/GlobalContext";
 import { getRecipeById, handleFav } from "../Data/recipeList";
 import ic_difficulty from "../images/card-icons/ic_difficulty.svg";
 import ic_duration from "../images/card-icons/ic_duration.svg";
@@ -13,6 +14,7 @@ const RecipeDetails = ({ match, location }) => {
 	const [recipe, setRecipe] = useState();
 	const [isFav, setIsFav] = useState(false);
 	const history = useHistory();
+	const { dispatch } = useContext(GlobalContext);
 
 	useEffect(() => {
 		if (history) {
@@ -35,15 +37,29 @@ const RecipeDetails = ({ match, location }) => {
 				<div className="recipe-details__header">
 					<div
 						className="recipe-details__header-top"
-						style={{ backgroundImage: `url(${recipe.image})` }}>
+						style={{
+							background: `linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${recipe.image}) no-repeat center/cover`,
+						}}>
 						<div className="recipe-details__go-back">
-							<IconContext.Provider value={{ size: "1.5rem" }}>
+							<IconContext.Provider value={{ size: "1.5rem", color: "white" }}>
 								<div className="recipe-details__go-back--active">
 									<BiArrowBack
 										onClick={() => {
+											let local = [];
+											if (location?.state?.from.length) {
+												local = location?.state?.from.splice(
+													location?.state?.from.length - 1,
+													1
+												);
+											}
 											setTimeout(() => {
-												if (location?.state?.from) {
-													history.push(location.state.from);
+												if (local.length) {
+													history.push({
+														pathname: local[0],
+														state: {
+															from: [...history.location.state.from],
+														},
+													});
 												} else {
 													history.push("/home");
 												}
@@ -55,10 +71,19 @@ const RecipeDetails = ({ match, location }) => {
 						</div>
 						<div className="recipe-details__fav">
 							{isFav ? (
-								<IconContext.Provider value={{ size: "1.5rem" }}>
+								<IconContext.Provider
+									value={{ size: "1.5rem", color: "white" }}>
 									<div className="recipe-details__fav--active">
 										<FaHeart
 											onClick={() => {
+												dispatch({
+													type: "SNACKBAR_TOGGLE",
+													payload: {
+														snackBarMessage: "Removed from favorites",
+														snackBarState: "info",
+														snackBarStatus: true,
+													},
+												});
 												setTimeout(() => {
 													handleFav(match.params.id);
 													setIsFav(false);
@@ -68,10 +93,19 @@ const RecipeDetails = ({ match, location }) => {
 									</div>
 								</IconContext.Provider>
 							) : (
-								<IconContext.Provider value={{ size: "1.5rem" }}>
+								<IconContext.Provider
+									value={{ size: "1.5rem", color: "white" }}>
 									<div className="recipe-details__fav--active">
 										<FiHeart
 											onClick={() => {
+												dispatch({
+													type: "SNACKBAR_TOGGLE",
+													payload: {
+														snackBarMessage: "Added to favorites",
+														snackBarState: "info",
+														snackBarStatus: true,
+													},
+												});
 												setTimeout(() => {
 													handleFav(match.params.id);
 													setIsFav(true);
@@ -112,30 +146,34 @@ const RecipeDetails = ({ match, location }) => {
 						</div>
 					</div>
 				</div>
-				<ul className="recipe-details__ingredients">
-					{recipe.ingredients.map((ingredient, i) => {
-						return (
-							<li key={i} className="recipe-details__ingredient">
-								<div className="recipe-details__ingredient--bullet"></div>
-								<div className="recipe-details__ingredient--text">
-									{ingredient}
-								</div>
-							</li>
-						);
-					})}
-				</ul>
-				<ul className="recipe-details__instructions">
-					{recipe.instructions.map((instruction, i) => {
-						return (
-							<li key={i} className="recipe-details__instruction">
-								<div className="recipe-details__instruction--bullet"></div>
-								<div className="recipe-details__instruction--text">
-									{instruction}
-								</div>
-							</li>
-						);
-					})}
-				</ul>
+				<div className="recipe-details__content">
+					<ul className="recipe-details__ingredients">
+						{recipe.ingredients.map((ingredient, i) => {
+							return (
+								<li key={i} className="recipe-details__ingredient">
+									<div className="recipe-details__ingredient--bullet"></div>
+									<div className="recipe-details__ingredient--text">
+										{ingredient}
+									</div>
+								</li>
+							);
+						})}
+					</ul>
+					<ul className="recipe-details__instructions">
+						{recipe.instructions.map((instruction, i) => {
+							return (
+								<li key={i} className="recipe-details__instruction">
+									<div className="recipe-details__instruction--bullet">
+										{i + 1}
+									</div>
+									<div className="recipe-details__instruction--text">
+										{instruction}
+									</div>
+								</li>
+							);
+						})}
+					</ul>
+				</div>
 			</div>
 		);
 	} else {

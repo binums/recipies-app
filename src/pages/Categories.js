@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { IconContext } from "react-icons/lib";
+import { useHistory } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Search from "../components/Search";
 import categoryList from "../Data/categoryList";
@@ -8,6 +9,7 @@ import withAuth from "../utils/withAuth";
 
 const Categories = () => {
 	const [showSearch, setShowSearch] = useState(false);
+	const history = useHistory();
 
 	return (
 		<>
@@ -38,8 +40,24 @@ const Categories = () => {
 					<div className="categories__content">
 						{categoryList.map((val, i) => {
 							return (
-								<div className="category" key={i}>
-									{val}
+								<div
+									className="category"
+									key={i}
+									onClick={() => {
+										let local = [];
+										if (history?.location?.state?.from.length) {
+											local = [...history?.location?.state?.from];
+										}
+										setTimeout(() => {
+											history.push({
+												pathname: `/category/${val._id}`,
+												state: {
+													from: [...local, history.location.pathname],
+												},
+											});
+										}, 150);
+									}}>
+									{val.name}
 								</div>
 							);
 						})}

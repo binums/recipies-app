@@ -3,20 +3,27 @@ import ic_difficulty from "../images/card-icons/ic_difficulty.svg";
 import ic_duration from "../images/card-icons/ic_duration.svg";
 import ic_recipes_grey2 from "../images/card-icons/ic_recipes_grey2.svg";
 
-const RecipeCard = ({ recipe }) => {
+const RecipeCard = ({ recipe, location }) => {
 	const history = useHistory();
 
 	return (
 		<div
 			className="recipe-card"
-			onClick={() =>
+			onClick={() => {
+				let local = [];
+				if (history?.location?.state?.from.length) {
+					local = [...history?.location?.state?.from];
+				}
+
 				setTimeout(() => {
 					history.push({
 						pathname: `/recipe/${recipe._id}`,
-						state: { from: history.location.pathname },
+						state: {
+							from: [...local, history.location.pathname],
+						},
 					});
-				}, 200)
-			}>
+				}, 200);
+			}}>
 			<img src={recipe.image} alt={recipe.name} />
 			<div className="details">
 				<p className="category">{recipe.category}</p>

@@ -10,7 +10,6 @@ const AuthForm = ({
 	setFieldState,
 	setCookie,
 }) => {
-
 	const { dispatch } = useContext(GlobalContext);
 
 	const handleSubmit = () => {
@@ -52,8 +51,6 @@ const AuthForm = ({
 				snackBarStatus: true,
 			},
 		});
-
-		console.log("AuthForm -> fieldState", fieldState);
 	};
 
 	return (

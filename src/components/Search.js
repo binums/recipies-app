@@ -4,7 +4,7 @@ import { IconContext } from "react-icons/lib";
 import recipeList from "../Data/recipeList";
 import RecipeCard from "./RecipeCard";
 
-const Search = ({ showSearch, setShowSearch, type }) => {
+const Search = ({ showSearch, setShowSearch, type, categoryId }) => {
 	const searchContainerRef = useRef(null);
 	const [keyword, setKeyword] = useState("");
 	const [noResult, setNoResult] = useState(true);
@@ -63,9 +63,10 @@ const Search = ({ showSearch, setShowSearch, type }) => {
 				{recipeList.map((val, i) => {
 					if (keyword) {
 						if (
-							val.name.toLowerCase().includes(keyword.toLowerCase()) &&
+							val.name.toLowerCase().includes(keyword.toLowerCase().trim()) &&
 							(type === "recipes" ||
-								(type === "favorites" && val.isFav === true))
+								(type === "favorites" && val.isFav === true) ||
+								(type === "category" && val.categoryId == categoryId))
 						) {
 							if (noResult) setNoResult(false);
 							return <RecipeCard recipe={val} key={i} className />;
@@ -73,7 +74,8 @@ const Search = ({ showSearch, setShowSearch, type }) => {
 					} else {
 						if (
 							type === "recipes" ||
-							(type === "favorites" && val.isFav === true)
+							(type === "favorites" && val.isFav === true) ||
+							(type === "category" && val.categoryId == categoryId)
 						) {
 							return <RecipeCard recipe={val} key={i} />;
 						}
