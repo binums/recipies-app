@@ -13,6 +13,7 @@ import SnackBar from "./components/SnackBar";
 import PageNotFound from "./pages/PageNotFound";
 import RecipeDetails from "./pages/RecipeDetails";
 import CategoryDetails from "./pages/CategoryDetails";
+import AppUrlListener from "./utils/AppUrlListener";
 
 function App() {
 	const initialSnackBarState = useContext(GlobalContext);
@@ -23,6 +24,7 @@ function App() {
 			<GlobalContext.Provider value={{ state, dispatch }}>
 				{state.snackBarStatus && <SnackBar />}
 				<BrowserRouter>
+					<AppUrlListener></AppUrlListener>
 					<Switch>
 						<Route exact path="/" component={SplashScreen} />
 						<Route exact path="/auth" component={AuthScreen} />
