@@ -24,7 +24,7 @@ function App() {
 			<GlobalContext.Provider value={{ state, dispatch }}>
 				{state.snackBarStatus && <SnackBar />}
 				<BrowserRouter>
-					<AppUrlListener></AppUrlListener>
+					<AppUrlListener />
 					<Switch>
 						<Route exact path="/" component={SplashScreen} />
 						<Route exact path="/auth" component={AuthScreen} />
