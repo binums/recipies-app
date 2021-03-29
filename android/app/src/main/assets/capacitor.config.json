@@ -1,0 +1,6 @@
+{
+	"appId": "dev.binums.app.recipies",
+	"appName": "recipie-app",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}

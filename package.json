@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@capacitor/android": "^3.0.0-rc.0",
+    "@capacitor/cli": "^3.0.0-rc.0",
+    "@capacitor/core": "^3.0.0-rc.0",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-cookie": "^4.0.3",

@@ -1,0 +1,5 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target" : { "namespace": "android_app", "package_name": "dev.binums.app.recipies",
+               "sha256_cert_fingerprints": ["B6:48:5D:A0:99:89:B8:82:78:95:C9:61:3A:4B:64:19:1A:26:20:3F:9B:9C:80:30:97:32:58:91:7B:4A:4F:7A"] }
+}]
